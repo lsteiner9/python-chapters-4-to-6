@@ -6,7 +6,12 @@ def main():
     key = int(input("Enter a key value: "))
     encoded = []
     for ch in phrase:
-        encoded.append(chr(ord(ch) + key))
+        number = ord(ch)
+        if not chr(number).isspace():
+            if not chr(number + key).isalpha():
+                number -= 58
+            number += key
+        encoded.append(chr(number))
     message = ""
     print("The encoded message is:", message.join(encoded))
 
@@ -14,7 +19,12 @@ def main():
     key = int(input("Enter a key value: "))
     decoded = []
     for ch in phrase:
-        decoded.append(chr(ord(ch) - key))
+        number = ord(ch)
+        if not chr(number).isspace():
+            if not chr(number - key).isalpha():
+                number += 58
+            number -= key
+        decoded.append(chr(number))
     message = ""
     print("The decoded message is:", message.join(decoded))
 
