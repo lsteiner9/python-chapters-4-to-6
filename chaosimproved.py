@@ -9,7 +9,7 @@ def main():
     iterations = int(
         input("Enter the number of iterations for the chaotic function: "))
     print("index     {value1}        {value2}".format(value1=value1,
-                                                     value2=value2))
+                                                      value2=value2))
     print("-" * 28)
     for i in range(iterations):
         value1 = 3.9 * value1 * (1 - value1)
