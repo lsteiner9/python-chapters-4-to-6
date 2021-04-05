@@ -1,20 +1,20 @@
 # countwords.py
 
 def main():
-    print("This program counts the number of words in an inputted sentence.")
-    sentence = input("Enter a sentence: ")
-    count = 0
-    alpha_flag = False
-    for ch in sentence:
-        if ch == " " and alpha_flag:
-            count += 1
-            alpha_flag = False
-        elif ch != " ":
-            alpha_flag = True
-    if alpha_flag:
-        count += 1
-
-    print("There are", count, "words in this sentence.")
+    print("This program counts the number of words in an inputted sentence or "
+          "a file.")
+    if input("Type 1 to input the sentence, 2 to input a file: ") == "1":
+        sentence = input("Enter a sentence: ")
+        words = sentence.split(" ")
+        print("There are", len(words), "words in this sentence.")
+    else:
+        filename = input("Enter filename to count words from: ")
+        file = open(filename, 'r')
+        count = 0
+        for line in file.readlines():
+            words = line.split(" ")
+            count += len(words)
+        print("There are", count, "words in this file.")
 
 
 if __name__ == '__main__':
