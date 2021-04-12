@@ -1,13 +1,16 @@
 # acronym.py
 
-def main():
-    print("This program creates an acronym based on an inputted phrase.")
-    phrase = input("Enter a phrase: ")
+def acronym(phrase):
     message = []
     for word in phrase.split():
         message.append(word[0])
     messageStr = ""
-    print("The acronym is", messageStr.join(message).upper())
+    return messageStr.join(message).upper()
+
+def main():
+    print("This program creates an acronym based on an inputted phrase.")
+    phrase = input("Enter a phrase: ")
+    print("The acronym is", acronym(phrase))
 
 
 if __name__ == '__main__':
